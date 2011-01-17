@@ -33,6 +33,9 @@ function commerce_order_order_form($form, &$form_state, $order) {
   // Add the field related form elements.
   $form_state['commerce_order'] = $order;
   field_attach_form('commerce_order', $order, $form, $form_state);
+  
+  // Changes styles for this specific form
+  drupal_add_css(drupal_get_path('module', 'commerce_order') . '/theme/commerce_order_ui.css');
 
   $form['additional_settings'] = array(
     '#type' => 'vertical_tabs',
