@@ -1,0 +1,28 @@
+/* Reduce dimensions so we may have 2 fieldsets side-by-side */
+#commerce-order-ui-order-form #edit-customer-billing {
+  width: 49%;
+}
+
+/* Give the form some love */
+#commerce-order-ui-order-form #edit-customer-billing legend span {
+  background-color: #E6E5E0;
+  margin-left: 1px;
+  margin-top: 1px;
+  padding: 0.5em 0;
+  width: 100%;
+}
+
+#commerce-order-ui-order-form #edit-customer-billing .form-item {
+  position: relative;
+}
+
+#commerce-order-ui-order-form #edit-customer-billing .form-item label {
+  position: absolute;
+  right: 71%;
+}
+
+#commerce-order-ui-order-form #edit-customer-billing .form-item select,
+#commerce-order-ui-order-form #edit-customer-billing .form-item .form-text {
+  position: absolute;
+  left: 31%;
+}
