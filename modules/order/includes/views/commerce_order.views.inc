@@ -171,6 +171,15 @@ function commerce_order_views_data() {
       'handler' => 'commerce_order_handler_field_order_operations',
     ),
   );
+  
+  // Expose total quantity for all line items in the order
+  $data['commerce_order']['total_quantity'] = array(
+    'field' => array(
+      'title' => t('Total quantity'),
+      'help' => t('Display the total quantity for all line items in the order.'),
+      'handler' => 'commerce_order_handler_field_order_total_quantity',
+    ),
+  );
 
   return $data;
 }
