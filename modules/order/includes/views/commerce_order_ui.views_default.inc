@@ -16,12 +16,12 @@ function commerce_order_ui_views_default_views() {
   $view->name = 'commerce_orders';
   $view->description = 'Display a list of orders for the store admin.';
   $view->tag = 'commerce';
-  $view->view_php = '';
   $view->base_table = 'commerce_order';
-  $view->is_cacheable = FALSE;
+  $view->human_name = '';
+  $view->core = 0;
   $view->api_version = '3.0-alpha1';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
-
+  
   /* Display: Defaults */
   $handler = $view->new_display('default', 'Defaults', 'default');
   $handler->display->display_options['title'] = 'Orders';
@@ -76,7 +76,6 @@ function commerce_order_ui_views_default_views() {
   $handler->display->display_options['empty']['text']['field'] = 'area';
   $handler->display->display_options['empty']['text']['empty'] = FALSE;
   $handler->display->display_options['empty']['text']['content'] = 'No orders have been created yet.';
-  $handler->display->display_options['empty']['text']['format'] = 'filtered_html';
   /* Relationship: Commerce Order: Owner */
   $handler->display->display_options['relationships']['uid']['id'] = 'uid';
   $handler->display->display_options['relationships']['uid']['table'] = 'commerce_order';
@@ -156,7 +155,7 @@ function commerce_order_ui_views_default_views() {
   $handler->display->display_options['fields']['operations']['alter']['html'] = 0;
   $handler->display->display_options['fields']['operations']['hide_empty'] = 0;
   $handler->display->display_options['fields']['operations']['empty_zero'] = 0;
-
+  
   /* Display: Admin page */
   $handler = $view->new_display('page', 'Admin page', 'admin_page');
   $handler->display->display_options['path'] = 'admin/commerce/orders/list';
@@ -168,6 +167,42 @@ function commerce_order_ui_views_default_views() {
   $handler->display->display_options['tab_options']['description'] = 'Manage orders in the store.';
   $handler->display->display_options['tab_options']['weight'] = '';
   $handler->display->display_options['tab_options']['name'] = 'management';
+  
+  /* Display: Latest orders */
+  $handler = $view->new_display('block', 'Latest orders', 'block_1');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Latest orders';
+  $handler->display->display_options['defaults']['use_more'] = FALSE;
+  $handler->display->display_options['use_more'] = TRUE;
+  $handler->display->display_options['use_more_text'] = 'See all orders';
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '5';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $translatables['commerce_orders'] = array(
+    t('Defaults'),
+    t('Orders'),
+    t('more'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort By'),
+    t('Asc'),
+    t('Desc'),
+    t('Items per page'),
+    t('- All -'),
+    t('Offset'),
+    t('No orders have been created yet.'),
+    t('Order owner'),
+    t('Order number'),
+    t('Owner'),
+    t('Created'),
+    t('Order status'),
+    t('Operations'),
+    t('Admin page'),
+    t('Latest orders'),
+    t('See all orders'),
+  );
+
 
   $views[$view->name] = $view;
 
