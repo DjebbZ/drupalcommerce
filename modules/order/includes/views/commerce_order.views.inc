@@ -174,17 +174,10 @@ function commerce_order_views_data() {
   
   // Expose total quantity for all line items in the order
   $data['commerce_order']['total_quantity'] = array(
-    'title' => t('Total quantity'),
-    'help' => t('The total quantity for all line items in the order.'),
     'field' => array(
+      'title' => t('Total quantity'),
+      'help' => t('The total quantity for all line items in the order.'),
       'handler' => 'commerce_order_handler_field_order_total_quantity',
-      'click sortable' => TRUE,
-    ),
-    'sort' => array(
-      'handler' => 'views_handler_sort',
-    ),
-    'filter' => array(
-      'handler' => 'views_handler_filter_numeric',
     ),
   );
 
