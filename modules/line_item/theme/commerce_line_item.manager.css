@@ -12,3 +12,11 @@
   float: left;
   padding: 3px 10px 0 0;
 }
+
+#line-item-manager .ajax-progress,
+#line-item-manager .ajax-progress .throbber {
+  float: none;
+  display: inline;
+  padding-right: 9px;
+  margin: 0;
+}
