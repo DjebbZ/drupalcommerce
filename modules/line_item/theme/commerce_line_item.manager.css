@@ -16,6 +16,8 @@
 #line-item-manager .ajax-progress,
 #line-item-manager .ajax-progress .throbber {
   float: none;
+}
+#line-item-manager .ajax-progress .throbber {
   display: inline;
   padding-right: 9px;
   margin: 0;
